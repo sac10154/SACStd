@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+    <!-- コンソール出力 -->
+    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+        <param name="threshold" value="DEBUG" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy/MMM/dd HH:mm:ss} [%p] %c{1}::%M (%L) - %U%m%n" />
+        </layout>
+    </appender>
+
+    <!-- コンソール出力 （サブプロセス） -->
+    <appender name="SUB_PROCESS_CONSOLE" class="org.apache.log4j.ConsoleAppender">
+        <param name="threshold" value="DEBUG" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[BATCH] %m%n" />
+        </layout>
+     </appender>
+
+    <!-- ファイル出力 -->
+    <appender name="LOGFILE" class="org.apache.log4j.RollingFileAppender">
+        <param name="file" value="C:\\pleiades_luna\\logs\\sac-web-trace.log" />
+        <param name="append" value="true" />
+        <param name="MaxFileSize" value="10MB" />
+        <param name="MaxBackupIndex" value="20" />
+        <param name="threshold" value="DEBUG" />
+        <layout class="jp.co.nssol.nsx2.nds.log.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy/MMM/dd HH:mm:ss} [%p] %c{1} - %U%m%n" />
+        </layout>
+    </appender>
+
+    <!-- ファイル出力（サブプロセス） -->
+    <appender name="SUB_PROCESS_LOGFILE" class="org.apache.log4j.RollingFileAppender">
+        <param name="file" value="C:\\pleiades_luna\\logs\\sac-sub-trace.log" />
+        <param name="append" value="true" />
+        <param name="MaxFileSize" value="10MB" />
+        <param name="MaxBackupIndex" value="20" />
+        <param name="threshold" value="DEBUG" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[BATCH] %m%n" />
+        </layout>
+    </appender>
+
+
+    <!--
+                        個別設定
+     -->
+    <logger name="jp.co.sacn" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="LOGFILE" />
+    </logger>
+    <!-- サブプロセス -->
+    <logger name="sub.process" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="SUB_PROCESS_CONSOLE" />
+        <appender-ref ref="SUB_PROCESS_LOGFILE" />
+    </logger>
+
+    <!-- ルートカテゴリ -->
+    <root>
+        <level value="INFO" />
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="LOGFILE" />
+    </root>
+
+</log4j:configuration>
