@@ -15,7 +15,7 @@ public class AttendanceValidator {
 
 	public void validate(Errors errors, HttpServletRequest request) throws Exception {
     	Validators v = new Validators(request);
-    	v.add("userId", v.required(), v.minlength(5), v.maxlength(5), v.regexp("^[0-9]*"));
+//    	v.add("userId", v.required(), v.minlength(5), v.maxlength(5), v.regexp("^[0-9]*"));
 //    	v.add("calendarDate", v.required(), v.dateType(Constants.DATE_FORMATE_DATE),  v.regexp("^\\d{4}-\\d{2}-\\d{2}$"));
     	v.add("arrivalTime", v.minlength(4), v.maxlength(4), v.regexp("^[0-9]*"));
     	v.add("quittingTime", v.minlength(4), v.maxlength(4), v.regexp("^[0-9]*"));

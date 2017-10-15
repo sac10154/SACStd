@@ -6,7 +6,7 @@
   <version>1</version>
   <properties>
     <slim3.version>1.0.17-SNAPSHOT</slim3.version>
-    <appengine.version>1.9.34</appengine.version>
+    <appengine.version>1.9.54</appengine.version>
     <generated.src>.apt_generated</generated.src>
     <generated.war>src/main/webapp</generated.war>
     <eclipse.lib>eclipse.lib</eclipse.lib>
@@ -322,8 +322,8 @@
               <content>
                 <![CDATA[
 eclipse.preferences.version=1
-org.eclipse.jdt.core.compiler.source=1.6
-org.eclipse.jdt.core.compiler.compliance=1.6
+org.eclipse.jdt.core.compiler.source=1.7
+org.eclipse.jdt.core.compiler.compliance=1.7
 org.eclipse.jdt.core.compiler.processAnnotations=enabled
                ]]>
               </content>
