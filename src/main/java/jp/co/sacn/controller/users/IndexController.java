@@ -8,6 +8,7 @@ import jp.co.sacn.service.users.EmployeeService;
 import org.slim3.controller.Controller;
 import org.slim3.controller.Navigation;
 
+@Deprecated
 public class IndexController extends Controller {
 
     private EmployeeService service = new EmployeeService();

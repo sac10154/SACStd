@@ -25,7 +25,7 @@ public class Group implements Serializable {
     private String groupName;
 
     // グループ種別
-    private String groupType;
+    private Integer groupType;
 
     /**
      * Returns the key.
@@ -97,14 +97,14 @@ public class Group implements Serializable {
 	/**
 	 * @return groupType
 	 */
-	public String getGroupType() {
+	public Integer getGroupType() {
 		return groupType;
 	}
 
 	/**
 	 * @param groupType セットする groupType
 	 */
-	public void setGroupType(String groupType) {
+	public void setGroupType(Integer groupType) {
 		this.groupType = groupType;
 	}
 

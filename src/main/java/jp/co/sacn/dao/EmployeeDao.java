@@ -1,5 +1,7 @@
 package jp.co.sacn.dao;
 
+import java.util.List;
+
 import jp.co.sacn.meta.EmployeeMeta;
 import jp.co.sacn.model.Employee;
 import jp.co.sacn.util.EncryptUtil;
@@ -30,4 +32,7 @@ public class EmployeeDao extends DaoBase<Employee>{
         return Datastore.query(meta).filter(meta.userId.equal(userId)).asSingle();
     }
 
+    public List<Employee> selects(String[] userIds) {
+        return Datastore.query(meta).filter(meta.userId.in(userIds)).asList();
+    }
 }

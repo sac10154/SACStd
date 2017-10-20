@@ -45,7 +45,7 @@
 		<!-- 管理者のメニュー -->
 		<h4>管理者メニュー</h4>
 		<p><button type="button" class="btn btn-primary btn-lg btn-block">休日設定</button></p>
-		<p><button type="button" class="btn btn-primary btn-lg btn-block">ユーザー・グループ設定</button></p>
+		<p><button type="button" class="btn btn-primary btn-lg btn-block" onclick="javascript:$('#userManageForm').submit();">ユーザー・グループ設定</button></p>
 			<br>
 
 	</div>
@@ -56,6 +56,8 @@
 <form id="csvDownloadForm" method="POST" action="/config/csvDownload">
 </form>
 <form id="changePasswordForm" method="POST" action="/users/changePassword">
+</form>
+<form id="userManageForm" method="POST" action="/users/userManage">
 </form>
 
 </body>

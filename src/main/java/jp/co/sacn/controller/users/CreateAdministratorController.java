@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import jp.co.sacn.common.impl.GroupType;
 import jp.co.sacn.controller.common.AbstractController;
 import jp.co.sacn.model.Group;
 import jp.co.sacn.model.Member;
@@ -35,41 +36,47 @@ public class CreateAdministratorController extends AbstractController {
         Group gp002 = new Group();
         Group gp003 = new Group();
         Group gp004 = new Group();
+        Group gp005 = new Group();
 
         gp001.setGroupId("Administrator");
         gp001.setGroupName("管理者");
-        gp001.setGroupType("ROLE");
+        gp001.setGroupType(GroupType.ROLE.getCode());
         groupList.add(gp001);
 
         gp002.setGroupId("Bucho");
         gp002.setGroupName("部長");
-        gp002.setGroupType("ROLE");
+        gp002.setGroupType(GroupType.ROLE.getCode());
         groupList.add(gp002);
 
         gp003.setGroupId("GroupLeader");
         gp003.setGroupName("グループリーダー");
-        gp003.setGroupType("ROLE");
+        gp003.setGroupType(GroupType.ROLE.getCode());
         groupList.add(gp003);
 
         gp004.setGroupId("Leader");
         gp004.setGroupName("リーダー");
-        gp004.setGroupType("ROLE");
+        gp004.setGroupType(GroupType.ROLE.getCode());
         groupList.add(gp004);
+
+        gp005.setGroupId("GAdmin");
+        gp005.setGroupName("管理者グループ");
+        gp005.setGroupType(GroupType.GROUP.getCode());
+        groupList.add(gp005);
 
         param.setGroupList(groupList);
 
         List<Member> memberList = new ArrayList<Member>();
         Member mb001 = new Member();
-//        Member mb002 = new Member();
+        Member mb002 = new Member();
 //        Member mb003 = new Member();
 
         mb001.setMemberId("admin");
         mb001.setGroupId("Administrator");
         memberList.add(mb001);
 
-//        mb002.setMemberId("Bucho");
-//        mb002.setGroupId("Leader");
-//        memberList.add(mb002);
+        mb002.setMemberId("admin");
+        mb002.setGroupId("GAdmin");
+        memberList.add(mb002);
 
         param.setMemberList(memberList);
 

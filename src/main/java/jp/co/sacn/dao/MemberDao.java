@@ -34,4 +34,11 @@ public class MemberDao extends DaoBase<Member>{
         return Datastore.query(meta).filter(meta.memberId.equal(memberId)).asSingle();
     }
 
+    public List<Member> selectMemberList(String groupId) {
+        return Datastore.query(meta).filter(meta.groupId.equal(groupId)).asList();
+    }
+
+    public List<Member> selectGroupIds(String[] groupIds) {
+        return Datastore.query(meta).filter(meta.groupId.in(groupIds)).asList();
+    }
 }

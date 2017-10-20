@@ -35,4 +35,8 @@ public class GroupDao extends DaoBase<Group>{
     public Group select(String groupId) {
         return Datastore.query(meta).filter(meta.groupId.equal(groupId)).asSingle();
     }
+
+    public List<Group> selectList(Integer groupType) {
+        return Datastore.query(meta).filter(meta.groupType.equal(groupType)).sort(meta.groupId.asc).asList();
+    }
 }
